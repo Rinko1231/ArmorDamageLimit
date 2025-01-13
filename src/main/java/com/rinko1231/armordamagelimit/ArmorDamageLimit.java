@@ -12,5 +12,11 @@ public class ArmorDamageLimit {
         MinecraftForge.EVENT_BUS.register(this);
         ArmorProtectionConfig.setup();
     }
-
+//Boom for Testing
+/*
+    @SubscribeEvent
+    public void onPlayerChat(ServerChatEvent event) {
+        event.getPlayer().hurt(DamageSource.explosion((Explosion) null), 99999);
+    }
+*/
 }
