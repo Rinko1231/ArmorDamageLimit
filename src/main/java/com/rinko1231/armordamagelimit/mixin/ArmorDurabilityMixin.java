@@ -36,7 +36,7 @@ public abstract class ArmorDurabilityMixin extends LivingEntity {
                 String itemId = BuiltInRegistries.ITEM.getKey(itemStack.getItem()).toString();
                 if (!itemStack.isEmpty()  && !ArmorProtectionConfig.itemProtectionBlacklist.get().contains(itemId)) {
                     int maxDurability = itemStack.getMaxDamage();
-                    float cappedDamage = Math.min(damage, maxDurability * (float) ArmorProtectionConfig.maxArmorDurabilityLossPercent.getAsDouble()) *4;
+                    float cappedDamage = Math.min(damage, maxDurability * (float) ArmorProtectionConfig.maxArmorDurabilityLossPercent.getAsDouble() * 4) ;
 
 
                     this.doHurtEquipment(damageSource, cappedDamage, slot);
