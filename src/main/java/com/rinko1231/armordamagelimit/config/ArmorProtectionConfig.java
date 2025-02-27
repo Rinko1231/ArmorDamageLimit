@@ -1,10 +1,8 @@
 package com.rinko1231.armordamagelimit.config;
 
-
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.List;
-
 
 public class ArmorProtectionConfig
 {
@@ -28,7 +26,5 @@ public class ArmorProtectionConfig
 
         SPEC = BUILDER.build();
     }
-
-
 }
 
