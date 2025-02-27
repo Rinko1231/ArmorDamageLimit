@@ -1,11 +1,11 @@
 package com.rinko1231.armordamagelimit.config;
 
+import com.rinko1231.armordamagelimit.ArmorDamageLimit;
+import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 
 import java.util.List;
-
 
 public class ArmorProtectionConfig
 {
@@ -31,8 +31,6 @@ public class ArmorProtectionConfig
 
     public static void setup()
     {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SPEC, "ArmorDamageLimit.toml");
+        ForgeConfigRegistry.INSTANCE.register(ArmorDamageLimit.MOD_ID, ModConfig.Type.COMMON, SPEC);
     }
-
-
 }
