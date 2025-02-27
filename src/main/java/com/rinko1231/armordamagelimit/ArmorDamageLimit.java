@@ -1,16 +1,15 @@
 package com.rinko1231.armordamagelimit;
 
 import com.rinko1231.armordamagelimit.config.ArmorProtectionConfig;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.Mod;
+import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
+import net.fabricmc.api.ModInitializer;
 import net.neoforged.fml.config.ModConfig;
 
-@Mod(ArmorDamageLimit.MOD_ID)
-public class ArmorDamageLimit {
+public class ArmorDamageLimit implements ModInitializer {
     public static final String MOD_ID = "armordamagelimit";
 
-    public ArmorDamageLimit(ModContainer modContainer) {
-        modContainer.registerConfig(ModConfig.Type.COMMON, ArmorProtectionConfig.SPEC,"ArmorDamageLimit.toml");
+    @Override
+    public void onInitialize() {
+        NeoForgeConfigRegistry.INSTANCE.register(MOD_ID, ModConfig.Type.COMMON, ArmorProtectionConfig.SPEC);
     }
-
 }

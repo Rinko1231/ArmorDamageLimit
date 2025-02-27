@@ -18,10 +18,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Player.class)
 public abstract class ArmorDurabilityMixin extends LivingEntity {
-
-
-    @Shadow public abstract void displayClientMessage(Component chatComponent, boolean actionBar);
-
     protected ArmorDurabilityMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
