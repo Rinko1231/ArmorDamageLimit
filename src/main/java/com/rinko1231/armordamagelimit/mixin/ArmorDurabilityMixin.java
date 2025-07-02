@@ -27,7 +27,7 @@ public class ArmorDurabilityMixin {
     @Inject(method = "hurtArmor", at = @At("HEAD"), cancellable = true)
     private void modifyArmorDurability(DamageSource source, float amount, int[] slots, CallbackInfo ci) {
         if (!(amount <= 0.0F))
-          {amount /= 4.0F;
+        {amount /= 4.0F;
             for (int i : slots) {
                 // 获取护甲物品栈
 
@@ -36,16 +36,16 @@ public class ArmorDurabilityMixin {
                     String itemId = ForgeRegistries.ITEMS.getKey(armorItem.getItem()).toString();
                     if(!ArmorProtectionConfig.itemProtectionBlacklist.get().contains(itemId))
                     {
-                      int maxDurability = armorItem.getMaxDamage();
-                      float maxAllowedDamage = (float) (maxDurability * ArmorProtectionConfig.maxArmorDurabilityLossPercent.get());
-                      amount = Math.min(amount, maxAllowedDamage);// 确保耐久损失不超过设定的最大值
+                        int maxDurability = armorItem.getMaxDamage();
+                        float maxAllowedDamage = (float) (maxDurability * ArmorProtectionConfig.maxArmorDurabilityLossPercent.get());
+                        amount = Math.min(amount, maxAllowedDamage);// 确保耐久损失不超过设定的最大值
                     }
                     if (amount < 1.0F)  {amount = 1.0F;}
                     armorItem.hurtAndBreak((int) amount, this.player, (ThePlayer) ->
                             ThePlayer.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR, i)));
                 }
-              }
-          }
+            }
+        }
         ci.cancel();
     }
 }
